@@ -1,5 +1,3 @@
 #!/usr/bin/python3
-for i in range(97, 123):
-    tableAsciiToAlphabet = chr(i)
-    asciiToAlpha = "" + tableAsciiToAlphabet
-    print("{}".format(asciiToAlpha), end='')
+for character in range(97, 123):
+    print("{:c}".format(character), end='')
