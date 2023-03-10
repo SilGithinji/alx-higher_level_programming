@@ -1,17 +1,15 @@
 #!/usr/bin/python3
-# Prints the number of and the list of its arguments
+
 if __name__ == "__main__":
+    """Print the number of and list of arguments."""
     import sys
 
-    arg = sys.argv
-    size = len(arg) - 1
-
-    if size > 1:
-        print("{} arguments:".format(size))
-        for i in range(1, size + 1):
-            print("{}: {}".format(i, arg[i]))
-        elif size == 0:
-            print("{} arguments.".format(size))
+    count = len(sys.argv) - 1
+    if count == 0:
+        print("0 arguments.")
+    elif count == 1:
+        print("1 argument:")
         else:
-            print("{} argument:".format(size))
-            print("{}: {}".format(size, arg[1]))
+            print("{} arguments:".format(count))
+        for i in range(count):
+            print("{}: {}".format(i + 1, sys.argv[i + 1]))
