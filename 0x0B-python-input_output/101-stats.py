@@ -1,5 +1,10 @@
 #!/usr/bin/python3
-"""script that reads stdin line by line and computes metrics"""
+"""
+After every ten lines or the input of a keyboard interruption (CTRL + C),
+prints the following statistics:
+    - Total file size up to that point.
+    - Count of read status codes up to that point.
+"""
 
 
 def print_stats(size, status_codes):
@@ -28,14 +33,11 @@ if __name__ == "__main__":
                 count = 1
             else:
                 count += 1
-
             line = line.split()
-
             try:
                 size += int(line[-1])
             except (IndexError, ValueError):
                 pass
-
             try:
                 if line[-2] in valid_codes:
                     if status_codes.get(line[-2], -1) == -1:
