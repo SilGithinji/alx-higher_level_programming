@@ -1,14 +1,14 @@
 #!/usr/bin/python3
-"""A function that inserts a line of text"""
+"""Search and update"""
 
 
 def append_after(filename="", search_string="", new_string=""):
-    """A function that inserts a line of text"""
-    with open(filename, 'r') as f:
-        lines = f.readlines()
-    with open(filename, 'w') as f:
-        for line in lines:
+    """inserts a line of text to a file, after each line with a spc. string"""
+    text = ""
+    with open(filename, "r") as file:
+        for line in file:
+            text += line
             if search_string in line:
-                f.write(line + new_string)
-            else:
-                f.write(line)
+                text += new_string
+    with open(filename, "w") as file:
+        file.write(text)
